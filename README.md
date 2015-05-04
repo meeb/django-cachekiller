@@ -28,8 +28,7 @@ Add `django_cachebuster` to your `INSTALLED_APPS` in your `settings.py`:
 INSTALLED_APPS += ('django_cachebuster',)
 ```
 
-That's it. Once installed, all calls to the `static` template tag will be
-intercepted and rewritten for you.
+That's it.
 
 # Usage
 
@@ -39,7 +38,7 @@ Load the new module at the top of your templates:
 {% load cdnstaticfiles %}
 ```
 
-Then use it in the template exactly as you would use the `static`:
+Then use the new tag in the template exactly as you would use the `static` tag:
 
 ```html
 {% cdnstatic 'some/image.jpg' %}
