@@ -2,7 +2,7 @@
 
 import os
 import sys
-from setuptools import setup
+from setuptools import (setup, find_packages)
 from django_cachebuster import __version__ as version
 
 def fread(fname):
@@ -17,6 +17,7 @@ setup(
     description=('Static file CDN cache buster for fast site updates.'),
     license='MIT',
     include_package_data=True,
+    packages=find_packages(),
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
