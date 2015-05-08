@@ -3,7 +3,7 @@
 import os
 import sys
 from setuptools import setup
-from django_distill import __version__ as version
+from django_cachebuster import __version__ as version
 
 def fread(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
