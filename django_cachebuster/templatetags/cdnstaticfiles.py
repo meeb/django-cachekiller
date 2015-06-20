@@ -6,6 +6,7 @@ from django.template import (Library, Node)
 from django.utils.timezone import now
 from django.utils.six import string_types
 from django.utils.six.moves.urllib.parse import (urlsplit, urlunsplit)
+from django.utils.encoding import force_text
 from django.templatetags.static import do_static
 
 register = Library()
@@ -38,12 +39,13 @@ class RepoRefCache(object):
         elif self._git_tip:
             return self._git_tip[:14]
         ref = self._run_cmd(['git', 'rev-parse', 'HEAD'])
-        if isinstance(ref, string_types):
-            self._git_tip = self._strip_ref(ref)
-            return self._git_tip[:14]
-        else:
+        ref = force_text(ref)
+        if ref == 'None':
             self._git_failed = False
             return None
+        else:
+            self._git_tip = self._strip_ref(ref)
+            return self._git_tip[:14]
 
     def get_hg_tip(self):
         if self._hg_failed:
@@ -51,12 +53,13 @@ class RepoRefCache(object):
         elif self._hg_tip:
             return self._hg_tip[:14]
         ref = self._run_cmd(['hg', 'heads', '--template', '"{node}"'])
-        if isinstance(ref, string_types):
-            self._hg_tip = self._strip_ref(ref)
-            return self._hg_tip[:14]
-        else:
+        ref = force_text(ref)
+        if ref == 'None':
             self._hg_failed = True
             return None
+        else:
+            self._hg_tip = self._strip_ref(ref)
+            return self._hg_tip[:14]
 
     def get_ts(self):
         return now().strftime('%Y%m%d%H%M%S')
