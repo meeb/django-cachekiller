@@ -84,7 +84,10 @@ class CDNStaticURLNode(Node):
     def render(self, context):
         url = self.url.render(context)
         parts = urlsplit(url)
-        qs = parts.query + '&tag=' + refcache.get_ref()
+        if parts.query:
+            qs = parts.query + '&tag=' + refcache.get_ref()
+        else:
+            qs = 'tag=' + refcache.get_ref()
         return urlunsplit((parts.scheme, parts.netloc, parts.path, qs,
             parts.fragment))
 
