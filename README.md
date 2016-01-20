@@ -19,7 +19,7 @@ to be widely compatible.
 Install from pip:
 
 ```bash
-$ pip install --upgrade git+git://github.com/mgrp/django-cachebuster.git@master
+$ pip install django-cachebuster
 ```
 
 Add `django_cachebuster` to your `INSTALLED_APPS` in your `settings.py`:
