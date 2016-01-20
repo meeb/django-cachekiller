@@ -9,10 +9,10 @@ def fread(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name='django-cachebuster',
+    name='django-cachekiller',
     version=str(version),
-    url='https://github.com/mgrp/django-cachebuster',
-    download_url='https://github.com/mgrp/django-cachebuster/tarball/0.1',
+    url='https://github.com/mgrp/django-cachekiller',
+    download_url='https://github.com/mgrp/django-cachekiller/tarball/0.1',
     author='the m group, https://m.pr/',
     author_email='hi@m.pr',
     description=('Static file CDN cache buster for fast site updates.'),

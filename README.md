@@ -1,6 +1,6 @@
-# django-cachebuster
+# django-cachekiller
 
-`django-cachebuster` is a small add-on for Django that adds the `cdnstatic`
+`django-cachekiller` is a small add-on for Django that adds the `cdnstatic`
 template tag which adds a 'cache busting' dynamic query string appended to the
 file paths. This tag functions identically to the standard `{% static ... %}`
 template tag. This is designed to work with CDNs that cache by complete URI
@@ -19,13 +19,13 @@ to be widely compatible.
 Install from pip:
 
 ```bash
-$ pip install django-cachebuster
+$ pip install django-cachekiller
 ```
 
-Add `django_cachebuster` to your `INSTALLED_APPS` in your `settings.py`:
+Add `django_cachekiller` to your `INSTALLED_APPS` in your `settings.py`:
 
 ```python
-INSTALLED_APPS += ('django_cachebuster',)
+INSTALLED_APPS += ('django_cachekiller',)
 ```
 
 That's it.
