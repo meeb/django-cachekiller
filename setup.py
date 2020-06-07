@@ -1,7 +1,9 @@
 import os
 import sys
 from setuptools import setup, find_packages
-from django_cachebuster import __version__ as version
+
+
+version = 0.2
 
 
 def fread(fname):
@@ -9,17 +11,17 @@ def fread(fname):
 
 
 setup(
-    name='django-cachekiller',
-    version=str(version),
-    url='https://github.com/meeb/django-cachekiller',
+    name = 'django-cachekiller',
+    version = str(version),
+    url = 'https://github.com/meeb/django-cachekiller',
     author = 'https://github.com/meeb',
     author_email = 'meeb@meeb.org',
-    description=('Static file CDN cache buster for fast site updates.'),
-    license='MIT',
-    include_package_data=True,
+    description = ('Static file CDN cache buster for fast site updates.'),
+    license = 'MIT',
+    include_package_data = True,
     install_requires = ('django',),
-    packages=find_packages(),
-    classifiers=[
+    packages = find_packages(),
+    classifiers = [
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
