@@ -3,11 +3,15 @@ import sys
 from setuptools import setup, find_packages
 
 
-version = 0.2
+version = 0.3
 
 
-def fread(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+with open('README.md', 'rt') as f:
+    long_description = f.read()
+
+
+with open('requirements.txt', 'rt') as f:
+    requirements = tuple(f.read().split())
 
 
 setup(
@@ -17,9 +21,11 @@ setup(
     author = 'https://github.com/meeb',
     author_email = 'meeb@meeb.org',
     description = ('Static file CDN cache buster for fast site updates.'),
+    long_description = long_description,
+    long_description_content_type = 'text/markdown',
     license = 'MIT',
     include_package_data = True,
-    install_requires = ('django',),
+    install_requires = requirements,
     packages = find_packages(),
     classifiers = [
         'Development Status :: 5 - Production/Stable',
