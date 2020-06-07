@@ -9,7 +9,7 @@ refreshed without having to wait for TTLs to expire. Internally we use this with
 `django-distill`, a static site generator for Django to work with static sites
 with heavy caching on images behind CloudFlare, cachefly and other CDNs:
 
-https://github.com/mgrp/django-distill
+https://github.com/meeb/django-distill
 
 Under the hood, this module just chains the request to the existing `static` tag
 to be widely compatible.
@@ -25,7 +25,10 @@ $ pip install django-cachekiller
 Add `django_cachekiller` to your `INSTALLED_APPS` in your `settings.py`:
 
 ```python
-INSTALLED_APPS += ('django_cachekiller',)
+INSTALLED_APPS = [
+    # ... other apps here ...
+    'django_cachekiller',
+]
 ```
 
 That's it.

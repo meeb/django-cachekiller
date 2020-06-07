@@ -1,15 +1,13 @@
-# -*- coding: utf-8 -*-
-
 import subprocess
-
-from django.template import (Library, Node)
+from django.template import Library, Node
 from django.utils.timezone import now
-from django.utils.six import string_types
-from django.utils.six.moves.urllib.parse import (urlsplit, urlunsplit)
+from urllib.parse import urlsplit, urlunsplit
 from django.utils.encoding import force_text
 from django.templatetags.static import do_static
 
+
 register = Library()
+
 
 class RepoRefCache(object):
     '''
@@ -76,11 +74,15 @@ class RepoRefCache(object):
             return ref
         return None
 
+
 refcache = RepoRefCache()
 
+
 class CDNStaticURLNode(Node):
+
     def __init__(self, url):
         self.url = url
+
     def render(self, context):
         url = self.url.render(context)
         parts = urlsplit(url)
@@ -91,9 +93,8 @@ class CDNStaticURLNode(Node):
         return urlunsplit((parts.scheme, parts.netloc, parts.path, qs,
             parts.fragment))
 
+
 @register.tag('cdnstatic')
 def do_cdnstatic(parser, token):
     url = do_static(parser, token)
     return CDNStaticURLNode(url)
-
-# eof

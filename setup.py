@@ -1,20 +1,19 @@
-# -*- coding: utf-8 -*-
-
 import os
 import sys
-from setuptools import (setup, find_packages)
+from setuptools import setup, find_packages
 from django_cachebuster import __version__ as version
+
 
 def fread(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+
 setup(
     name='django-cachekiller',
     version=str(version),
-    url='https://github.com/mgrp/django-cachekiller',
-    download_url='https://github.com/mgrp/django-cachekiller/tarball/0.1',
-    author='the m group, https://m.pr/',
-    author_email='hi@m.pr',
+    url='https://github.com/meeb/django-cachekiller',
+    author = 'https://github.com/meeb',
+    author_email = 'meeb@meeb.org',
     description=('Static file CDN cache buster for fast site updates.'),
     license='MIT',
     include_package_data=True,
@@ -40,5 +39,3 @@ setup(
     ],
     keywords = ['django', 'cache', 'buster', 'cdn', 'cachebuster'],
 )
-
-# eof
