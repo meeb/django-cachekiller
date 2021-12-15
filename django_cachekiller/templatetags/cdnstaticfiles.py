@@ -37,7 +37,7 @@ class RepoRefCache(object):
         elif self._git_tip:
             return self._git_tip[:14]
         ref = self._run_cmd(['git', 'rev-parse', 'HEAD'])
-        ref = force_text(ref)
+        ref = force_str(ref)
         if ref == 'None':
             self._git_failed = False
             return None
@@ -51,7 +51,7 @@ class RepoRefCache(object):
         elif self._hg_tip:
             return self._hg_tip[:14]
         ref = self._run_cmd(['hg', 'heads', '--template', '"{node}"'])
-        ref = force_text(ref)
+        ref = force_str(ref)
         if ref == 'None':
             self._hg_failed = True
             return None
