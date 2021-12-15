@@ -2,7 +2,7 @@ import subprocess
 from django.template import Library, Node
 from django.utils.timezone import now
 from urllib.parse import urlsplit, urlunsplit
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.templatetags.static import do_static
 
 
