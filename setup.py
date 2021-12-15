@@ -3,7 +3,7 @@ import sys
 from setuptools import setup, find_packages
 
 
-version = 0.6
+version = '0.7.0'
 
 
 with open('README.md', 'rt') as f:
@@ -16,7 +16,7 @@ with open('requirements.txt', 'rt') as f:
 
 setup(
     name = 'django-cachekiller',
-    version = str(version),
+    version = version,
     url = 'https://github.com/meeb/django-cachekiller',
     author = 'https://github.com/meeb',
     author_email = 'meeb@meeb.org',
