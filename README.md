@@ -57,6 +57,20 @@ is available, otherwise it will be the current date in `YYYYMMDDHHMMSS` format.
 If there are existing query string parameters then the `tag` is intelligently
 appended. The `cdnstatic` tag will not break the existing URL.
 
+Additionally, if you need to just access the `[random tag]` for some other use
+without the automatic URL rewriting you can use the following:
+
+```html
+<a href="/someurl.html?tag={% cdntag %}">link</a>
+```
+
+This can be used in conjunction with other URL wrapping tags for combatability
+where chaining tags is difficult, for example:
+
+```html
+<link rel="stylesheet" href="{% sass_src 'file.scss' %}?tag={% cdntag %}">
+```
+
 # Contributing
 
 All properly formatted and sensible pull requests, issues and comments are

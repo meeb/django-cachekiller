@@ -98,3 +98,8 @@ class CDNStaticURLNode(Node):
 def do_cdnstatic(parser, token):
     url = do_static(parser, token)
     return CDNStaticURLNode(url)
+
+
+@register.tag('cdntag')
+def do_cdntag(parser, token):
+    return refcache.get_ref()
