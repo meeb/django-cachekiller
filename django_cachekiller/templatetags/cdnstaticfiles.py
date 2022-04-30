@@ -94,12 +94,18 @@ class CDNStaticURLNode(Node):
             parts.fragment))
 
 
-@register.tag('cdnstatic')
+class CDNTagNode(Node):
+
+    def render(self, *args, **kwargs):
+        return refcache.get_ref()
+
+
+@register.tag(name='cdnstatic')
 def do_cdnstatic(parser, token):
     url = do_static(parser, token)
     return CDNStaticURLNode(url)
 
 
-@register.tag('cdntag')
+@register.tag(name='cdntag')
 def do_cdntag(parser, token):
-    return refcache.get_ref()
+    return CDNTagNode()
