@@ -24,7 +24,7 @@ class RepoRefCache(object):
     def _run_cmd(self, cmd):
         try:
             return subprocess.check_output(cmd, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError:
+        except (subprocess.CalledProcessError, FileNotFoundError):
             return None
 
     def _strip_ref(self, ref):
